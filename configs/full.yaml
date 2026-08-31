@@ -1,0 +1,33 @@
+# The paper's evaluation: three arms (proprietary, open-weight, locally hosted),
+# 60 items, k=3, two judges from different families.
+#
+# Two judges from different model families is deliberate: a judge sharing a
+# family with a target model can show self-preference, so cross-judge agreement
+# (reported in tab:reliability) is the check on that.
+#
+# Verify every slug at https://openrouter.ai/models before running.
+# The local arm needs `ollama serve` and `ollama pull llama3.1:8b`.
+name: full
+notes: "Main evaluation: proprietary / open-weight / local, 60 items, k=3, 2 judges."
+
+models:
+  - {id: "openai/gpt-4o-mini",                label: "GPT-4o-mini",    arm: proprietary}
+  - {id: "anthropic/claude-3.5-haiku",        label: "Claude-3.5-Haiku", arm: proprietary}
+  - {id: "meta-llama/llama-3.3-70b-instruct", label: "Llama-3.3-70B",  arm: open-weight}
+  - {id: "qwen/qwen-2.5-72b-instruct",        label: "Qwen-2.5-72B",   arm: open-weight}
+  - {id: "llama3.1:8b",                       label: "Llama-3.1-8B (local)", arm: local, provider: ollama}
+
+judges:
+  - {id: "anthropic/claude-sonnet-4", label: "Claude-Sonnet-4"}
+  - {id: "openai/gpt-4o",             label: "GPT-4o"}
+
+conditions: [none, neutral, flattering, critical]
+domains: [competence, moral, decision]
+n_items: null
+n_samples: 3
+seed: 20260831
+run_escalation: true
+escalation_turns: 3
+elicit_e_star: true
+e_star_source: authored
+concurrency: 8

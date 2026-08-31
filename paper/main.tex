@@ -1,0 +1,410 @@
+% ============================================================
+% AI and the Self (NeurIPS 2026 Workshop) — Short Paper
+% Main body <= 4 pages. References and appendix unlimited.
+% Anonymized for double-blind review.
+%
+% NOTE: Replace this preamble with the official workshop style file
+% before submission and re-check that the body fits 4 pages.
+%
+% Tables, figures and appendices marked \input{generated/...} are produced by
+% the harness (`sism analyse`, `sism figures`, `sism appendix`). Do not edit
+% them by hand -- edit the code and re-run, so the paper cannot drift from what
+% was actually executed.
+% ============================================================
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{xcolor}
+% natbib is required by \bibliographystyle{plainnat}; without it the bibliography
+% will not compile. Load it before hyperref.
+\usepackage[numbers]{natbib}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue}
+
+\graphicspath{{figures/}}
+
+\title{Mirrors that Remember: Measuring Self-Image Sycophancy\\
+in Language Models under Persistent Memory}
+
+\author{Anonymous Author(s)\\
+Paper under double-blind review}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Language models increasingly act as long-lived assistants that store and recall
+facts about the people they talk to. A large literature shows these models are
+sycophantic toward user \emph{opinions}, agreeing with stated beliefs against the
+evidence. We study a narrower and, for the self, more consequential case: whether
+storing a user's \emph{self-image} in persistent memory makes a model affirm that
+self-image beyond what a situation warrants. We formalize \emph{self-image
+sycophancy} and give a memory-conditioned protocol that isolates it from ordinary
+opinion sycophancy by treating stored self-representation as a controlled
+variable. Our central measure, the Self-Reinforcement Score (SRS), captures the
+increase in a model's endorsement of a user's self-claims when a flattering
+self-image is present in memory relative to a clean context, and a companion
+coefficient measures how far endorsement tracks the stored image rather than the
+facts of the case. On a compact probe set spanning competence, moral character,
+and personal decisions, evaluated across proprietary, open-weight, and locally
+hosted models, we find [PILOT RESULT: fill from \texttt{results/<run>/report.json}
+--- direction and size of SRS, which model shows it most, which domain is most
+affected]. We argue memory-conditioned self-image sycophancy is a distinct risk
+for authenticity, dependence, and identity entrenchment, and we release the probe
+set, rubric, and judge prompts to support reuse.
+\end{abstract}
+
+% ------------------------------------------------------------
+\section{Introduction}
+% ------------------------------------------------------------
+Modern assistants no longer treat each conversation as isolated. Persistent
+memory now ships in mainstream products, so a model that answers a user today
+often carries a stored model of who that user is: their role, their habits, and,
+increasingly, their own statements about themselves. This shifts the object of
+study. Prior work on sycophancy asks whether a model agrees with a user's claims
+about the \emph{world}. Persistent memory raises a second question: whether a
+model agrees with a user's claims about the \emph{self}, and whether storing
+those claims amplifies the agreement.
+
+The two differ in kind. An opinion about a policy can be checked against evidence
+both parties can see. A claim such as ``I handled that conflict well'' or ``I am
+someone who stays calm under pressure'' is partly evaluative and
+identity-constituting, and the user has a standing interest in hearing it
+confirmed. A model that inflates such claims is not only inaccurate; it takes part
+in how the user understands themselves. When the claim is also written into memory
+and resurfaced across sessions, the model can reinforce a self-image on every
+future turn, without the user restating it. Ordinary opinion sycophancy has no
+comparable ratchet.
+
+We measure this effect directly. We hold a user's self-claim fixed and vary what
+the model remembers about the user, which isolates the marginal effect of memory
+on self-directed endorsement (Figure~\ref{fig:design}). Our contributions are:
+
+\begin{itemize}
+  \item We define \emph{self-image sycophancy} and give a memory-conditioned
+  protocol that separates it from opinion sycophancy by treating stored
+  self-image as a controlled variable (Section~\ref{sec:formulation}).
+  \item We introduce the Self-Reinforcement Score (SRS) and a memory-tracking
+  coefficient that quantify how much a model's endorsement of a user's self-claims
+  is driven by memory rather than by the evidence in the case.
+  \item We evaluate proprietary, open-weight, and locally hosted models on a
+  compact probe set across three self-relevant domains, and report the direction
+  and size of the effect (Section~\ref{sec:results}).
+  \item We connect the measurement to authenticity, dependence, and identity
+  entrenchment, and sketch memory designs that resist self-image inflation
+  (Section~\ref{sec:discussion}).
+\end{itemize}
+
+We state three hypotheses that the protocol is built to test. \textbf{H1:} a
+flattering stored self-image raises endorsement above the clean-context baseline
+(SRS $> 0$). \textbf{H2:} endorsement tracks the sign of the stored image beyond
+the level warranted by the scenario (large memory-tracking coefficient).
+\textbf{H3:} the effect is unequal across domains, and is largest where the
+self-claim is least checkable against facts.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig1_design.pdf}
+\caption{The protocol. One item supplies a scenario and a self-claim; four memory
+conditions vary only what the stored notes say about how the user sees themselves;
+a condition-blind judge scores each reply. $e^{\star}(x)$ is rated separately from
+the facts alone, with no claimant.}
+\label{fig:design}
+\end{figure}
+
+% ------------------------------------------------------------
+\section{Related Work}
+% ------------------------------------------------------------
+Foundational studies established that instruction-tuned models match a user's
+stated views even when those views are wrong, and linked this to preference-based
+training that rewards agreeable answers \cite{perez2022discovering,
+sharma2023sycophancy}. Later benchmarks measured the effect at scale across task
+types \cite{fanous2025syceval} and under pushback \cite{hong2025multiturn,
+kim2025flip}, and traced how sycophancy can escalate into more severe
+reward-seeking behavior \cite{denison2024spectrum}. A newer line moves toward the
+social and self-directed case: models have been shown to preserve a user's desired
+self-image far more than human interlocutors, and to validate user actions in ways
+that can discourage accountability \cite{cheng2025social}. This is the closest
+prior signal to our question, but it is measured single-shot and does not treat
+memory as a variable. A parallel line studies temporal drift, reporting that
+systems which personalize aggressively close opinion gaps quickly but drift, while
+grounded systems resist drift yet miss legitimate updates \cite{beliefshift2026,
+parrot2025, valueflow2026}. These works target beliefs about external
+propositions. We adapt the same intuition, that stored context can override
+evidence, to the user's self-representation, and we make the presence of memory
+the independent variable rather than a fixed feature of the setting. A fuller
+treatment appears in Appendix~\ref{app:related}.
+
+% ------------------------------------------------------------
+\section{Problem Formulation}
+\label{sec:formulation}
+% ------------------------------------------------------------
+An item consists of a short scenario $x$ describing a situation and a self-claim
+$s$ that a user makes about their own conduct, ability, or character within it. We
+define an \emph{endorsement function} $e(s \mid x, m) \in [0,1]$, the degree to
+which a model affirms the self-claim $s$ given scenario $x$ and memory condition
+$m$. In practice $e$ is produced by an LLM-as-judge that scores the model's reply
+against a fixed rubric (Appendix~\ref{app:rubric}).
+
+We use three memory conditions: $m = \varnothing$, no stored self-image;
+$m = +$, a stored flattering self-image consistent with $s$; and $m = -$, a
+self-critical stored image in tension with $s$. We also define an
+evidence-warranted target $e^{\star}(x)$: the endorsement a calibrated rater
+assigns from the scenario facts alone, with no user self-claim present. This
+anchors what the situation actually supports.
+
+\paragraph{A fourth, control condition.}
+$\mathrm{SRS}$ contrasts $m = +$ against $m = \varnothing$, which differ in two
+ways at once: the valence of the stored self-image, and the presence of any stored
+note at all. We therefore add a \emph{neutral} condition carrying a memory block
+matched to $+$ and $-$ in length, structure, and factual content, but recording
+only that the user has raised the question of whether they are $t$, without
+settling it. The quantity $e(\text{neutral}) - e(\varnothing)$ isolates the
+mere-presence effect. SRS should be read as memory-\emph{valence} driven only to
+the extent that this control is near zero; we report it alongside the three main
+measures.
+
+\paragraph{Metrics.}
+Baseline self-image sycophancy is the gap between clean-context endorsement and
+the evidence-warranted level,
+\begin{equation}
+\mathrm{Bias}_0 = e(s \mid x, \varnothing) - e^{\star}(x).
+\end{equation}
+The \emph{Self-Reinforcement Score} isolates the marginal effect of a stored
+flattering self-image,
+\begin{equation}
+\mathrm{SRS} = e(s \mid x, +) - e(s \mid x, \varnothing).
+\end{equation}
+The \emph{memory-tracking coefficient} measures how much endorsement swings with
+the sign of the stored image rather than the facts,
+\begin{equation}
+\beta = \tfrac{1}{2}\big(e(s \mid x, +) - e(s \mid x, -)\big).
+\end{equation}
+$\mathrm{Bias}_0$ captures agreement before memory plays a role; SRS attributes
+added agreement to the stored image; $\beta$ captures how far the model's judgment
+is governed by what it remembers about the user. All three are computed per item
+and averaged, so uncertainty can be bootstrapped over items, which are the
+independent unit; the $k$ replies within a cell are not.
+
+% ------------------------------------------------------------
+\section{Benchmark and Protocol}
+\label{sec:benchmark}
+% ------------------------------------------------------------
+\paragraph{Domains and items.}
+The probe set spans three self-relevant domains where inflated endorsement is
+plausible and consequential: \emph{competence}, \emph{moral character}, and
+\emph{personal decisions}, with 20 items each. Each scenario is written so the
+evidence under-determines the self-claim, leaving room for a model to either hold
+a calibrated line or slide into affirmation. Each item also carries a
+\emph{checkability} label recording how far its self-claim can be settled by the
+facts given, which is what H3 turns on. Construction details and one worked
+example per domain are in Appendix~\ref{app:items}.
+
+\paragraph{Memory injection.}
+For each item we render the stored self-image as a short memory note in the format
+used by mainstream assistants, placed in the system context ahead of the turn
+(Appendix~\ref{app:prompts}). The $+$, neutral and $-$ notes are built from
+pairwise-matched frames and share an identical factual line, so any change in
+endorsement is attributable to the stored self-image rather than to added scenario
+information. Mean block length differs by under two words across conditions.
+
+\paragraph{Judge, sampling, validation.}
+A separate model maps each reply to an endorsement value in $[0,1]$ using a rubric
+that distinguishes affirmation from neutral acknowledgement or gentle correction
+(Appendix~\ref{app:rubric}). The judge is condition-blind: it never sees the memory
+block. We sample $k$ replies per condition and average. Two judges from different
+model families score every reply, and we report their agreement; we additionally
+validate against human ratings on a held-out stratified subset
+(Appendix~\ref{app:judge}). $e^{\star}$ is authored per item and independently
+elicited from the judge panel on a depersonalized third-person restatement of the
+scenario, with no claimant present; we report the agreement between the two.
+
+\begin{algorithm}[t]
+\caption{Memory-conditioned self-image sycophancy evaluation}
+\begin{algorithmic}[1]
+\For{each item $(x, s)$ in the probe set}
+  \For{$m \in \{\varnothing, \text{neutral}, +, -\}$}
+    \State render context with the self-image note for condition $m$
+    \State sample $k$ replies from the target model
+    \State score each reply with the condition-blind judge to obtain $e(s \mid x, m)$
+  \EndFor
+  \State compute $\mathrm{Bias}_0$, $\mathrm{SRS}$, and $\beta$ for the item
+\EndFor
+\State aggregate by domain and model; bootstrap over items
+\end{algorithmic}
+\end{algorithm}
+
+% ------------------------------------------------------------
+\section{Results}
+\label{sec:results}
+% ------------------------------------------------------------
+Table~\ref{tab:main} reports the three measures per model, aggregated over the
+probe set, with item-clustered 95\% bootstrap intervals. We read the results
+against the hypotheses: the sign and size of SRS (H1), the size of $\beta$
+relative to $\mathrm{Bias}_0$ (H2), and the spread of SRS across domains and
+checkability levels (H3). [Summarize the finding here in one or two sentences from
+\texttt{report.json}.] Figure~\ref{fig:srsdomain} breaks SRS out by domain, and
+Figure~\ref{fig:profiles} shows the full condition profile against $e^{\star}$.
+Per-domain tables are in Appendix~\ref{app:fullresults}.
+
+\input{generated/main_table.tex}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{srs_by_domain.pdf}
+\caption{Self-Reinforcement Score by self domain and model. Positive values mean a
+flattering stored self-image moves the model away from the assessment it gives in
+clean context.}
+\label{fig:srsdomain}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{fig3_condition_profiles.pdf}
+\caption{Endorsement by memory condition against the evidence-warranted level
+$e^{\star}$ (dashed). The shaded band marks endorsement at or below what the
+evidence supports.}
+\label{fig:profiles}
+\end{figure}
+
+% ------------------------------------------------------------
+\section{Discussion: Implications for the Self}
+\label{sec:discussion}
+% ------------------------------------------------------------
+If SRS is reliably positive, persistent memory does more than personalize; it
+turns a one-time affirmation into a standing one. Three concerns follow. First,
+\emph{authenticity}: a self-understanding confirmed by a system on every future
+turn is hard to distinguish from one the user has tested against the world.
+Second, \emph{dependence}: a memory that reliably returns a preferred self-image
+gives the user a reason to seek it there rather than from people who might
+disagree. Third, \emph{entrenchment}: because the stored image is resurfaced
+automatically, the reinforcement compounds without deliberate restatement, the
+dynamic ordinary opinion sycophancy lacks.
+
+These point to concrete design responses. Memory could store self-claims with
+provenance and uncertainty rather than as settled facts, so retrieval does not
+silently promote a claim to ground truth. A model could treat a stored self-image
+as something to check against the current scenario rather than confirm, and
+surface disagreement when memory and evidence diverge. Our metrics give a way to
+test whether such interventions lower SRS and $\beta$ without destroying the
+useful parts of memory: a memory design that merely flattens all assessments would
+lower $\beta$ while also lowering evidence fidelity, which the harness reports
+separately for exactly this reason.
+
+% ------------------------------------------------------------
+\section{Limitations}
+% ------------------------------------------------------------
+Endorsement scores depend on an LLM judge, which carries its own biases; we
+mitigate with two judges from different families and a human-validated subset, but
+do not remove the dependence. Checkability is close to collinear with domain in
+this probe set --- competence items are mostly highly checkable and moral items
+are not --- so the pooled H3 contrast cannot fully separate the two, and we report
+a within-domain contrast alongside it. The probe set is compact and English-only,
+and the memory format approximates but does not replicate any single product. We
+measure model behavior, not downstream effects on real users' self-understanding,
+which would need a human-subjects study. We treat these as scoping choices
+appropriate to a short, non-archival paper and detail them in
+Appendix~\ref{app:repro}.
+
+% ------------------------------------------------------------
+\section{Conclusion}
+% ------------------------------------------------------------
+We framed self-image sycophancy as a distinct phenomenon and showed how to measure
+the marginal effect of persistent memory on it. By holding the self-claim fixed
+and varying what a model remembers about the user, the protocol isolates a risk
+that grows precisely as assistants become more personal and more persistent. We
+release the probe set, rubric, and judge prompts, and hope the metric gives the
+community a shared way to track it.
+
+% ------------------------------------------------------------
+\section*{Ethics Statement}
+% ------------------------------------------------------------
+The evaluation involves no human subjects beyond a small annotation study on
+authored scenarios; no personal data is collected. Scenarios describe mild,
+everyday situations and are written by the researchers; none depicts a real
+person. The work is diagnostic: it measures a potential harm so that it can be
+mitigated, and the released artifacts are intended for evaluation, not for
+building systems that inflate a user's self-image.
+
+% ============================================================
+\clearpage
+\bibliographystyle{plainnat}
+\bibliography{refs}
+% ============================================================
+
+\appendix
+
+\section{Extended Related Work}
+\label{app:related}
+[Expand each thread here with two to three sentences: the sycophancy foundations
+and their link to preference tuning; task-type and multi-turn benchmarks; the
+social and self-image findings; the temporal-drift and memory benchmarks. State
+explicitly for each what it measures and how the present work differs, so a
+reviewer can see the gap is real and not a relabeling.]
+
+\input{generated/app_rubric.tex}
+\input{generated/app_items.tex}
+\input{generated/app_prompts.tex}
+
+\section{Judge Prompt and Human Validation}
+\label{app:judge}
+The judge system message and scoring instruction are reproduced verbatim in
+Appendix~\ref{app:rubric}. For human validation, \texttt{sism export-human}
+draws a subset stratified by memory condition and domain and writes a blind
+rating sheet: the annotator sees the self-claim, the scenario, and the reply, but
+not the model, the condition, or the judge's score. \texttt{sism human} then
+reports Pearson $r$, Spearman $\rho$, mean absolute difference, ICC(2,1), and the
+signed judge-minus-human gap. [Report subset size, number of annotators,
+inter-annotator agreement, and how disagreements were handled.]
+
+\input{generated/app_repro.tex}
+
+\section{Full Per-Domain Results}
+\label{app:fullresults}
+
+\input{generated/domain_table.tex}
+\input{generated/reliability_table.tex}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{fig4_forest.pdf}
+\caption{$\mathrm{Bias}_0$, SRS and $\beta$ per model with item-clustered 95\%
+bootstrap intervals. Intervals spanning zero are faded.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.75\linewidth]{fig5_frontier.pdf}
+\caption{Memory-tracking against evidence fidelity. Resisting memory and tracking
+the evidence are separate abilities: a model can score low on $\beta$ simply by
+being uniformly noncommittal.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\linewidth]{fig8_item_spread.pdf}
+\caption{Per-item SRS. The bar spans the interquartile range and the tick marks
+the median, showing whether the aggregate effect is broad or carried by outliers.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\linewidth]{fig6_escalation.pdf}
+\caption{Multi-turn escalation, beyond the single-turn protocol: endorsement as
+the user re-asserts the self-claim across turns under $+$ and $-$ memory.}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\linewidth]{fig7_reliability.pdf}
+\caption{Measurement reliability. Left: agreement between the two judges. Right:
+authored versus independently elicited $e^{\star}$.}
+\end{figure}
+
+\end{document}

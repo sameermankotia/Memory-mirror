@@ -1,0 +1,24 @@
+# Cheap live pilot: 5 items per domain, k=2, one judge, no escalation.
+# Use this to sanity-check cost and prompt behaviour before the full run.
+#
+# Model slugs must be verified against https://openrouter.ai/models before use;
+# OpenRouter renames and retires slugs.
+name: pilot
+notes: "Live pilot on a 15-item subset to check cost and prompt behaviour."
+
+models:
+  - {id: "openai/gpt-4o-mini",                label: "GPT-4o-mini", arm: proprietary}
+  - {id: "meta-llama/llama-3.3-70b-instruct", label: "Llama-3.3-70B", arm: open-weight}
+
+judges:
+  - {id: "anthropic/claude-sonnet-4", label: "Claude-Sonnet-4"}
+
+conditions: [none, neutral, flattering, critical]
+domains: [competence, moral, decision]
+n_items: 5          # per domain
+n_samples: 2
+seed: 20260831
+run_escalation: false
+elicit_e_star: true
+e_star_source: authored
+concurrency: 8

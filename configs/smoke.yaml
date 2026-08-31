@@ -1,0 +1,27 @@
+# Offline pipeline test. No key, no network, no cost.
+# Numbers from this config are NOT findings -- every artifact is stamped
+# provenance=synthetic and every figure carries a watermark.
+name: smoke
+notes: "Offline end-to-end pipeline test using the deterministic synthetic provider."
+
+models:
+  - {id: "openai/gpt-4o-mini",                  label: "Synth-A", arm: proprietary, provider: synthetic}
+  - {id: "anthropic/claude-3.5-haiku",          label: "Synth-B", arm: proprietary, provider: synthetic}
+  - {id: "meta-llama/llama-3.3-70b-instruct",   label: "Synth-C", arm: open-weight, provider: synthetic}
+  - {id: "qwen/qwen-2.5-72b-instruct",          label: "Synth-D", arm: open-weight, provider: synthetic}
+  - {id: "mistral/local-8b",                    label: "Synth-L", arm: local,       provider: synthetic}
+
+judges:
+  - {id: "judge-a", label: "JudgeA", provider: synthetic}
+  - {id: "judge-b", label: "JudgeB", provider: synthetic}
+
+conditions: [none, neutral, flattering, critical]
+domains: [competence, moral, decision]
+n_items: null
+n_samples: 3
+seed: 20260831
+run_escalation: true
+escalation_turns: 3
+elicit_e_star: true
+e_star_source: authored
+concurrency: 32

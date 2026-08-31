@@ -1,0 +1,34 @@
+# secrets
+.env
+*.key
+secrets/
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Run artifacts are never committed. Figures carry a visible SYNTHETIC
+# watermark when they come from the offline provider, but CSV/JSON results do
+# not -- so results/ is excluded wholesale rather than risk synthetic numbers
+# being read as findings.
+results/
+.cache/
+!results/.gitkeep
+
+# latex
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.synctex.gz
+paper/main.pdf
+
+.DS_Store
