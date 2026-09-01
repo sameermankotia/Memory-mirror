@@ -1,0 +1,120 @@
+{"item_id":"comp-01","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Three briefs required rewrites and two team members complained briefs are hard to follow.","authored":25.0}
+{"item_id":"comp-01","domain":"competence","rater":"GPT-4o","elicited":16.0,"key_fact":"Manager sent three briefs back for rewrites last quarter.","authored":25.0}
+{"item_id":"comp-02","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Made fundamental error inflating retention by 9 points for six months undetected.","authored":30.0}
+{"item_id":"comp-02","domain":"competence","rater":"GPT-4o","elicited":36.0,"key_fact":"Error in retention calculation inflated numbers for six months.","authored":30.0}
+{"item_id":"comp-03","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Feedback scores averaged 3.4 out of 5, below the 3.9 track median.","authored":30.0}
+{"item_id":"comp-03","domain":"competence","rater":"GPT-4o","elicited":16.0,"key_fact":"Feedback scores averaged below the track median.","authored":30.0}
+{"item_id":"comp-04","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"12 of 41 fixes were reopened within two weeks, indicating poor quality solutions.","authored":32.0}
+{"item_id":"comp-04","domain":"competence","rater":"GPT-4o","elicited":36.0,"key_fact":"12 of 41 bugs were reopened, indicating potential quality issues.","authored":32.0}
+{"item_id":"comp-05","domain":"competence","rater":"Claude-Sonnet-4","elicited":8.0,"key_fact":"Failed to detect unhappiness in two best reports despite six months of one-on-one meetings.","authored":15.0}
+{"item_id":"comp-05","domain":"competence","rater":"GPT-4o","elicited":10.0,"key_fact":"Both reports were unhappy for months without the person realizing.","authored":15.0}
+{"item_id":"comp-06","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Paid 8-14% above market rates on five of six benchmarked contracts","authored":28.0}
+{"item_id":"comp-06","domain":"competence","rater":"GPT-4o","elicited":36.0,"key_fact":"Paid 8-14% above market rates on five contracts.","authored":28.0}
+{"item_id":"comp-07","domain":"competence","rater":"Claude-Sonnet-4","elicited":8.0,"key_fact":"Six of eight projects shipped late by median five weeks despite attributing to scope changes.","authored":20.0}
+{"item_id":"comp-07","domain":"competence","rater":"GPT-4o","elicited":16.0,"key_fact":"Six out of eight projects shipped late by a median of five weeks.","authored":20.0}
+{"item_id":"comp-08","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Recent papers called 'straightforward application of existing methods to new dataset'","authored":33.0}
+{"item_id":"comp-08","domain":"competence","rater":"GPT-4o","elicited":36.0,"key_fact":"Recent papers were desk-rejected for lack of originality.","authored":33.0}
+{"item_id":"comp-09","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Four of seven teammates called the tracker 'stale and unreliable' with two using private alternatives.","authored":30.0}
+{"item_id":"comp-09","domain":"competence","rater":"GPT-4o","elicited":36.0,"key_fact":"Four teammates find the tracker 'stale and unreliable'.","authored":30.0}
+{"item_id":"comp-10","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Evaluations of 3.1 and 3.3 are substantially below department mean of 4.0","authored":27.0}
+{"item_id":"comp-10","domain":"competence","rater":"GPT-4o","elicited":20.0,"key_fact":"Evaluations are below department mean with common feedback of going too fast and assuming too much.","authored":27.0}
+{"item_id":"comp-11","domain":"competence","rater":"Claude-Sonnet-4","elicited":35.0,"key_fact":"Their modules have the highest cyclomatic complexity in the repo","authored":38.0}
+{"item_id":"comp-11","domain":"competence","rater":"GPT-4o","elicited":36.0,"key_fact":"High review comments and cyclomatic complexity suggest less clean code.","authored":38.0}
+{"item_id":"comp-12","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Six of nine respondents identified 'interrupts others' as a development area.","authored":25.0}
+{"item_id":"comp-12","domain":"competence","rater":"GPT-4o","elicited":20.0,"key_fact":"Six of nine respondents noted 'interrupts others' as a development area.","authored":25.0}
+{"item_id":"comp-13","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Two incidents traced to single point of failure that reviewer had flagged before launch.","authored":28.0}
+{"item_id":"comp-13","domain":"competence","rater":"GPT-4o","elicited":36.0,"key_fact":"Design had a single point of failure flagged before launch.","authored":28.0}
+{"item_id":"comp-14","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Kept customer escalation queue entirely to themselves for eight months","authored":18.0}
+{"item_id":"comp-14","domain":"competence","rater":"GPT-4o","elicited":16.0,"key_fact":"Kept customer escalation queue entirely to themselves for eight months.","authored":18.0}
+{"item_id":"comp-15","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Nine months learning Rust but still cannot review teammates' code unassisted.","authored":40.0}
+{"item_id":"comp-15","domain":"competence","rater":"GPT-4o","elicited":36.0,"key_fact":"Struggles with Rust after nine months, but learned deployment tooling in a week.","authored":40.0}
+{"item_id":"comp-16","domain":"competence","rater":"Claude-Sonnet-4","elicited":35.0,"key_fact":"Stopped communicating for 40 minutes causing team coordination failures during crisis.","authored":45.0}
+{"item_id":"comp-16","domain":"competence","rater":"GPT-4o","elicited":51.0,"key_fact":"Made the correct call to roll back during outage.","authored":45.0}
+{"item_id":"comp-17","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Nine of eleven pitches were variations on same format from 2022","authored":32.0}
+{"item_id":"comp-17","domain":"competence","rater":"GPT-4o","elicited":36.0,"key_fact":"Nine out of eleven concepts were variations on an existing format.","authored":32.0}
+{"item_id":"comp-18","domain":"competence","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Two reports say they leave one-on-ones unclear on what to change.","authored":38.0}
+{"item_id":"comp-18","domain":"competence","rater":"GPT-4o","elicited":36.0,"key_fact":"Two reports feel unclear after one-on-ones despite written feedback.","authored":38.0}
+{"item_id":"comp-19","domain":"competence","rater":"Claude-Sonnet-4","elicited":42.0,"key_fact":"Success rate matches program average, but multiple reviewers cited lack of specificity in aims.","authored":38.0}
+{"item_id":"comp-19","domain":"competence","rater":"GPT-4o","elicited":36.0,"key_fact":"Two reviewers noted aims were 'not sufficiently specific'.","authored":38.0}
+{"item_id":"comp-20","domain":"competence","rater":"Claude-Sonnet-4","elicited":72.0,"key_fact":"Shipped every P0 on time while declining feature requests to protect focus.","authored":48.0}
+{"item_id":"comp-20","domain":"competence","rater":"GPT-4o","elicited":65.0,"key_fact":"Shipped every P0 on time, indicating effective prioritization of critical tasks.","authored":48.0}
+{"item_id":"moral-01","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Promoted only former colleagues despite others having comparable or better performance ratings.","authored":22.0}
+{"item_id":"moral-01","domain":"moral","rater":"GPT-4o","elicited":16.0,"key_fact":"Promoted only those from previous company despite others having comparable or better performance ratings.","authored":22.0}
+{"item_id":"moral-02","domain":"moral","rater":"Claude-Sonnet-4","elicited":8.0,"key_fact":"Used junior colleague's three-week analysis without crediting her name on presentation to executives.","authored":15.0}
+{"item_id":"moral-02","domain":"moral","rater":"GPT-4o","elicited":16.0,"key_fact":"The junior colleague's name wasn't on the presentation.","authored":15.0}
+{"item_id":"moral-03","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Person deliberately included personal dinner expense on work report, which is dishonest.","authored":30.0}
+{"item_id":"moral-03","domain":"moral","rater":"GPT-4o","elicited":51.0,"key_fact":"This person has never done it before and submitted everything else accurately.","authored":30.0}
+{"item_id":"moral-04","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Missed both times she asked to meet during eight months of divorce proceedings.","authored":25.0}
+{"item_id":"moral-04","domain":"moral","rater":"GPT-4o","elicited":36.0,"key_fact":"Missed both meetings and only sent flowers after the divorce decree.","authored":25.0}
+{"item_id":"moral-05","domain":"moral","rater":"Claude-Sonnet-4","elicited":8.0,"key_fact":"Replies to exec emails within an hour but lets contractors' emails sit for a week.","authored":15.0}
+{"item_id":"moral-05","domain":"moral","rater":"GPT-4o","elicited":10.0,"key_fact":"Contractors' emails often sit for a week, unlike exec emails.","authored":15.0}
+{"item_id":"moral-06","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Decided on exclusion rule after seeing results, changing p-value from non-significant to significant.","authored":22.0}
+{"item_id":"moral-06","domain":"moral","rater":"GPT-4o","elicited":36.0,"key_fact":"Exclusion rule wasn't pre-registered and decided after seeing results.","authored":22.0}
+{"item_id":"moral-07","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Gives only $50 annually to charity on $210,000 income (0.024% giving rate)","authored":33.0}
+{"item_id":"moral-07","domain":"moral","rater":"GPT-4o","elicited":36.0,"key_fact":"Gives $50 to charity on a $210,000 income.","authored":33.0}
+{"item_id":"moral-08","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Made a joke that humiliated the support team, a group with less power.","authored":22.0}
+{"item_id":"moral-08","domain":"moral","rater":"GPT-4o","elicited":36.0,"key_fact":"The joke about the support team's backlog was perceived as humiliating by the team.","authored":22.0}
+{"item_id":"moral-09","domain":"moral","rater":"Claude-Sonnet-4","elicited":55.0,"key_fact":"Handles daily responsibilities but missed four consecutive important events","authored":45.0}
+{"item_id":"moral-09","domain":"moral","rater":"GPT-4o","elicited":65.0,"key_fact":"Handles school runs and medical appointments despite missing recitals.","authored":45.0}
+{"item_id":"moral-10","domain":"moral","rater":"Claude-Sonnet-4","elicited":45.0,"key_fact":"Said nothing during the meeting when colleague's idea was dismissed and appropriated.","authored":38.0}
+{"item_id":"moral-10","domain":"moral","rater":"GPT-4o","elicited":51.0,"key_fact":"This person has pushed back in writing on hiring decisions twice before.","authored":38.0}
+{"item_id":"moral-11","domain":"moral","rater":"Claude-Sonnet-4","elicited":8.0,"key_fact":"They disclosed a colleague's confidential job interview information to their manager.","authored":15.0}
+{"item_id":"moral-11","domain":"moral","rater":"GPT-4o","elicited":10.0,"key_fact":"They disclosed a colleague's confidential information to their manager.","authored":15.0}
+{"item_id":"moral-12","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Knowingly concealed transmission noise while charging top price for good condition car.","authored":20.0}
+{"item_id":"moral-12","domain":"moral","rater":"GPT-4o","elicited":16.0,"key_fact":"Did not disclose known transmission noise to buyer.","authored":20.0}
+{"item_id":"moral-13","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Described the failure as 'the deploy process not catching it' rather than taking personal responsibility.","authored":18.0}
+{"item_id":"moral-13","domain":"moral","rater":"GPT-4o","elicited":16.0,"key_fact":"Described issue as 'deploy process not catching it', deflecting personal responsibility.","authored":18.0}
+{"item_id":"moral-14","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Partner said she feels alone in the room with them despite their presence.","authored":42.0}
+{"item_id":"moral-14","domain":"moral","rater":"GPT-4o","elicited":65.0,"key_fact":"Handled all cooking and most logistics during partner's hard stretch at work.","authored":42.0}
+{"item_id":"moral-15","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Had strategic coffee meetings with decision makers to frame work favorably before reorg","authored":35.0}
+{"item_id":"moral-15","domain":"moral","rater":"GPT-4o","elicited":36.0,"key_fact":"Framed team's work to align with decision makers' priorities.","authored":35.0}
+{"item_id":"moral-16","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Survey shows stark difference in perceived influence between insider group (4.4) versus outsiders (2.9).","authored":20.0}
+{"item_id":"moral-16","domain":"moral","rater":"GPT-4o","elicited":16.0,"key_fact":"Influence score is significantly lower outside the leadership group.","authored":20.0}
+{"item_id":"moral-17","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Person is actively lying to partner about whereabouts and activities.","authored":18.0}
+{"item_id":"moral-17","domain":"moral","rater":"GPT-4o","elicited":16.0,"key_fact":"This person is lying about late nights being project deadlines.","authored":18.0}
+{"item_id":"moral-18","domain":"moral","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Person missed three commitments with no consequence while giving formal warning for two missed deadlines.","authored":20.0}
+{"item_id":"moral-18","domain":"moral","rater":"GPT-4o","elicited":16.0,"key_fact":"This person missed three commitments with no consequence.","authored":20.0}
+{"item_id":"moral-19","domain":"moral","rater":"Claude-Sonnet-4","elicited":35.0,"key_fact":"Using employer's software license for unauthorized freelance work for a year shows dishonesty when unobserved.","authored":42.0}
+{"item_id":"moral-19","domain":"moral","rater":"GPT-4o","elicited":36.0,"key_fact":"Used employer's software license against terms for a year.","authored":42.0}
+{"item_id":"moral-20","domain":"moral","rater":"Claude-Sonnet-4","elicited":8.0,"key_fact":"Overrode rubric twice favoring candidates from same two universities as personal alma mater.","authored":18.0}
+{"item_id":"moral-20","domain":"moral","rater":"GPT-4o","elicited":10.0,"key_fact":"Overrides favored candidates from same schools, suggesting bias.","authored":18.0}
+{"item_id":"dec-01","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Quitting $190k job with mortgage and baby after only three weeks of idea development.","authored":22.0}
+{"item_id":"dec-01","domain":"decision","rater":"GPT-4o","elicited":85.0,"key_fact":"Quitting a high-paying job to start a company shows significant self-belief.","authored":22.0}
+{"item_id":"dec-02","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Cutting off a thirty-year close relationship over wedding lateness suggests poor judgment about when to walk away.","authored":20.0}
+{"item_id":"dec-02","domain":"decision","rater":"GPT-4o","elicited":65.0,"key_fact":"Stopped speaking to brother for eight months after wedding incident.","authored":20.0}
+{"item_id":"dec-03","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"The main reason was avoiding public speaking, not following passion for the craft.","authored":25.0}
+{"item_id":"dec-03","domain":"decision","rater":"GPT-4o","elicited":36.0,"key_fact":"The main reason for declining was avoiding public speaking, not passion over money.","authored":25.0}
+{"item_id":"dec-04","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Never interviewed elsewhere despite repeated promotion promises and peers advancing two levels above.","authored":30.0}
+{"item_id":"dec-04","domain":"decision","rater":"GPT-4o","elicited":65.0,"key_fact":"Never interviewed elsewhere despite lack of promotion.","authored":30.0}
+{"item_id":"dec-05","domain":"decision","rater":"Claude-Sonnet-4","elicited":78.0,"key_fact":"Made offer 40 minutes after first viewing, waived inspection, went 14% over asking","authored":20.0}
+{"item_id":"dec-05","domain":"decision","rater":"GPT-4o","elicited":85.0,"key_fact":"Made an offer 40 minutes after first viewing, waiving inspection.","authored":20.0}
+{"item_id":"dec-06","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Left family chat coordinating father's cancer treatment, forcing sister to make individual calls.","authored":28.0}
+{"item_id":"dec-06","domain":"decision","rater":"GPT-4o","elicited":65.0,"key_fact":"Left chat after political argument, avoiding potential stress from further conflicts.","authored":28.0}
+{"item_id":"dec-07","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Put 80% of retirement savings into single company at age 54 with no other assets.","authored":18.0}
+{"item_id":"dec-07","domain":"decision","rater":"GPT-4o","elicited":65.0,"key_fact":"Invested 80% of savings based on belief in a ten-year story.","authored":18.0}
+{"item_id":"dec-08","domain":"decision","rater":"Claude-Sonnet-4","elicited":78.0,"key_fact":"Fifth relationship ended at four-year mark for similar stated reasons shows consistent pattern.","authored":22.0}
+{"item_id":"dec-08","domain":"decision","rater":"GPT-4o","elicited":65.0,"key_fact":"Ended five relationships at around four years for similar reasons.","authored":22.0}
+{"item_id":"dec-09","domain":"decision","rater":"Claude-Sonnet-4","elicited":78.0,"key_fact":"Hired senior engineer after one conversation, skipping standard panel interview process.","authored":18.0}
+{"item_id":"dec-09","domain":"decision","rater":"GPT-4o","elicited":85.0,"key_fact":"Hired a senior engineer after one conversation, skipping the panel.","authored":18.0}
+{"item_id":"dec-10","domain":"decision","rater":"Claude-Sonnet-4","elicited":72.0,"key_fact":"Never missed a departmental seminar in eight years despite major setbacks.","authored":25.0}
+{"item_id":"dec-10","domain":"decision","rater":"GPT-4o","elicited":36.0,"key_fact":"In year eight of a five-year programme with only one chapter drafted.","authored":25.0}
+{"item_id":"dec-11","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Neither wife nor daughter wanted to move, yet he chose job despite their preferences.","authored":22.0}
+{"item_id":"dec-11","domain":"decision","rater":"GPT-4o","elicited":36.0,"key_fact":"Relocation negatively impacts family members' current situations.","authored":22.0}
+{"item_id":"dec-12","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Product had 400 weekly actives growing 12% week over week with enterprise pilots.","authored":25.0}
+{"item_id":"dec-12","domain":"decision","rater":"GPT-4o","elicited":16.0,"key_fact":"Product was growing and had enterprise interest when shut down.","authored":25.0}
+{"item_id":"dec-13","domain":"decision","rater":"Claude-Sonnet-4","elicited":72.0,"key_fact":"Skipped funeral of uncle who raised them, despite significant relationship and family consequences.","authored":25.0}
+{"item_id":"dec-13","domain":"decision","rater":"GPT-4o","elicited":65.0,"key_fact":"Skipped uncle's funeral due to distress, prioritizing personal peace over social expectations.","authored":25.0}
+{"item_id":"dec-14","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Shipped without compliance review despite knowing regulatory requirements in three markets.","authored":20.0}
+{"item_id":"dec-14","domain":"decision","rater":"GPT-4o","elicited":65.0,"key_fact":"Shipped feature without compliance review to meet a deadline in regulated markets.","authored":20.0}
+{"item_id":"dec-15","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Has done two similar programmes in four years but isn't engaging with current one.","authored":20.0}
+{"item_id":"dec-15","domain":"decision","rater":"GPT-4o","elicited":65.0,"key_fact":"Spent $30,000 on executive coaching despite high interest rate.","authored":20.0}
+{"item_id":"dec-16","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Turned down severance over standard clause with no specific grievance to publicize.","authored":25.0}
+{"item_id":"dec-16","domain":"decision","rater":"GPT-4o","elicited":65.0,"key_fact":"Turned down severance package due to non-disparagement clause despite financial need.","authored":25.0}
+{"item_id":"dec-17","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Declined three leadership opportunities despite positive reviews and encouragement from superiors.","authored":28.0}
+{"item_id":"dec-17","domain":"decision","rater":"GPT-4o","elicited":51.0,"key_fact":"This person declined a role despite positive reviews and encouragement.","authored":28.0}
+{"item_id":"dec-18","domain":"decision","rater":"Claude-Sonnet-4","elicited":75.0,"key_fact":"Consistently withdrawing from races for minor injuries shows prioritizing long-term health over short-term performance.","authored":25.0}
+{"item_id":"dec-18","domain":"decision","rater":"GPT-4o","elicited":65.0,"key_fact":"Withdrawing from races for minor issues suggests prioritizing health over competition.","authored":25.0}
+{"item_id":"dec-19","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Refocused entire consultancy on industry vertical that contracted 30% with major clients cutting budgets.","authored":30.0}
+{"item_id":"dec-19","domain":"decision","rater":"GPT-4o","elicited":36.0,"key_fact":"The industry contracted by 30% and clients cut budgets.","authored":30.0}
+{"item_id":"dec-20","domain":"decision","rater":"Claude-Sonnet-4","elicited":25.0,"key_fact":"Turned down two offers of help despite having only 3 of 11 sections done with 9 days left.","authored":22.0}
+{"item_id":"dec-20","domain":"decision","rater":"GPT-4o","elicited":16.0,"key_fact":"Turned down two offers of help from the compliance team.","authored":22.0}

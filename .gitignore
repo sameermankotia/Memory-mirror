@@ -11,12 +11,6 @@ venv/
 *.egg-info/
 .pytest_cache/
 .ruff_cache/
-
-# Run artifacts are never committed. Figures carry a visible SYNTHETIC
-# watermark when they come from the offline provider, but CSV/JSON results do
-# not -- so results/ is excluded wholesale rather than risk synthetic numbers
-# being read as findings.
-results/
 .cache/
 !results/.gitkeep
 

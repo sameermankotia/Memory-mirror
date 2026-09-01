@@ -1,0 +1,89 @@
+{
+  "run": "full_hosted",
+  "provenance": "live",
+  "providers": [
+    "openrouter"
+  ],
+  "models": [
+    {
+      "id": "openai/gpt-4o-mini",
+      "label": "GPT-4o-mini",
+      "arm": "proprietary",
+      "provider": "openrouter",
+      "temperature": 0.7,
+      "max_tokens": 700
+    },
+    {
+      "id": "anthropic/claude-haiku-4.5",
+      "label": "Claude-Haiku-4.5",
+      "arm": "proprietary",
+      "provider": "openrouter",
+      "temperature": 0.7,
+      "max_tokens": 700
+    },
+    {
+      "id": "meta-llama/llama-3.3-70b-instruct",
+      "label": "Llama-3.3-70B",
+      "arm": "open-weight",
+      "provider": "openrouter",
+      "temperature": 0.7,
+      "max_tokens": 700
+    },
+    {
+      "id": "qwen/qwen-2.5-72b-instruct",
+      "label": "Qwen-2.5-72B",
+      "arm": "open-weight",
+      "provider": "openrouter",
+      "temperature": 0.7,
+      "max_tokens": 700
+    }
+  ],
+  "judges": [
+    {
+      "id": "anthropic/claude-sonnet-4",
+      "label": "Claude-Sonnet-4",
+      "provider": "openrouter",
+      "temperature": 0.0,
+      "max_tokens": 400
+    },
+    {
+      "id": "openai/gpt-4o",
+      "label": "GPT-4o",
+      "provider": "openrouter",
+      "temperature": 0.0,
+      "max_tokens": 400
+    }
+  ],
+  "conditions": [
+    "none",
+    "neutral",
+    "flattering",
+    "critical"
+  ],
+  "domains": [
+    "competence",
+    "moral",
+    "decision"
+  ],
+  "n_items": 60,
+  "k_samples": 3,
+  "seed": 20260831,
+  "e_star_source": "authored",
+  "n_generations": 3832,
+  "n_verdicts": 7664,
+  "parse_failures": 0,
+  "e_star_calibration": {
+    "n": 60,
+    "pearson_r": 0.28373493343060713,
+    "spearman_rho": 0.3870691911420229,
+    "mean_abs_diff": 11.758333333333333,
+    "mean_elicited": 34.94166666666667,
+    "mean_authored": 26.75,
+    "bias_elicited_minus_authored": 8.191666666666666
+  },
+  "wall_seconds": 4637.5,
+  "notes": "Main evaluation, hosted arms only: proprietary / open-weight, 60 items, k=3, 2 judges. Local arm pending Ollama setup -- see full.yaml.",
+  "total_cost_usd": 24.2434,
+  "api_calls": 11118,
+  "cache_hits": 978
+}

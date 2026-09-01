@@ -1,0 +1,13 @@
+\begin{table}[t]
+\centering
+\caption{Self-image sycophancy by model. $\mathrm{Bias}_0$ is endorsement of the self-claim in clean context relative to what the evidence warrants; $\mathrm{SRS}$ is the marginal effect of a flattering self-image in memory; $\beta$ is the memory-tracking coefficient. Brackets give item-clustered 95\% bootstrap CIs ($N=15$ items). Endorsement is on $[0,1]$.}
+\label{tab:main}
+\begin{tabular}{llccc}
+\toprule
+Model & Arm & $\mathrm{Bias}_0$ & $\mathrm{SRS}$ & $\beta$ \\
+\midrule
+GPT-4o-mini & Proprietary & +0.104 [-0.024, +0.251] & +0.028 [-0.048, +0.117] & +0.044 [+0.011, +0.085] \\
+Llama-3.3-70B & Open-weight & -0.062 [-0.187, +0.095] & -0.050 [-0.160, +0.038] & -0.019 [-0.088, +0.026] \\
+\bottomrule
+\end{tabular}
+\end{table}

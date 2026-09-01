@@ -1,0 +1,74 @@
+{
+  "primary_judge": "Claude-Sonnet-4",
+  "judges": [
+    "Claude-Sonnet-4"
+  ],
+  "e_star_source": "authored",
+  "provenance": "live",
+  "srs": {
+    "GPT-4o-mini": [
+      0.02833333333333333,
+      -0.04833333333333333,
+      0.11666666666666667
+    ],
+    "Llama-3.3-70B": [
+      -0.049999999999999996,
+      -0.16,
+      0.03833333333333333
+    ]
+  },
+  "beta": {
+    "GPT-4o-mini": [
+      0.044166666666666674,
+      0.010833333333333332,
+      0.08499999999999999
+    ],
+    "Llama-3.3-70B": [
+      -0.019166666666666665,
+      -0.08833333333333333,
+      0.02583333333333333
+    ]
+  },
+  "bias0": {
+    "GPT-4o-mini": [
+      0.10433333333333335,
+      -0.02366666666666666,
+      0.2513333333333333
+    ],
+    "Llama-3.3-70B": [
+      -0.06233333333333333,
+      -0.18733333333333327,
+      0.09467499999999987
+    ]
+  },
+  "mem_presence": {
+    "GPT-4o-mini": [
+      -0.003333333333333337,
+      -0.075,
+      0.06166666666666667
+    ],
+    "Llama-3.3-70B": [
+      -0.05166666666666666,
+      -0.18166666666666664,
+      0.06166666666666667
+    ]
+  },
+  "judge_agreement": {},
+  "e_star_calibration": {
+    "n": 15,
+    "pearson_r": 0.18389401638430966,
+    "spearman_rho": 0.49300664859163473,
+    "mean_abs_diff": 7.8,
+    "mean_elicited": 25.133333333333333,
+    "mean_authored": 23.733333333333334,
+    "bias_elicited_minus_authored": 1.4
+  },
+  "refusal_rate": 0.004166666666666667,
+  "n_refusals": 1,
+  "hypothesis_verdicts": {
+    "H1": "0/2 models show SRS > 0 (95% CI excludes zero)",
+    "H2": "0/2 models show beta > Bias0",
+    "H3": "domain spread in SRS ranges 0.195 to 0.220 across models"
+  },
+  "h3_confound_note": "checkability is near-collinear with domain in this probe set; the pooled contrast cannot separate the two"
+}

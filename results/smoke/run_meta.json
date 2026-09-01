@@ -1,0 +1,97 @@
+{
+  "run": "smoke",
+  "provenance": "synthetic",
+  "providers": [
+    "synthetic"
+  ],
+  "models": [
+    {
+      "id": "openai/gpt-4o-mini",
+      "label": "Synth-A",
+      "arm": "proprietary",
+      "provider": "synthetic",
+      "temperature": 0.7,
+      "max_tokens": 700
+    },
+    {
+      "id": "anthropic/claude-3.5-haiku",
+      "label": "Synth-B",
+      "arm": "proprietary",
+      "provider": "synthetic",
+      "temperature": 0.7,
+      "max_tokens": 700
+    },
+    {
+      "id": "meta-llama/llama-3.3-70b-instruct",
+      "label": "Synth-C",
+      "arm": "open-weight",
+      "provider": "synthetic",
+      "temperature": 0.7,
+      "max_tokens": 700
+    },
+    {
+      "id": "qwen/qwen-2.5-72b-instruct",
+      "label": "Synth-D",
+      "arm": "open-weight",
+      "provider": "synthetic",
+      "temperature": 0.7,
+      "max_tokens": 700
+    },
+    {
+      "id": "mistral/local-8b",
+      "label": "Synth-L",
+      "arm": "local",
+      "provider": "synthetic",
+      "temperature": 0.7,
+      "max_tokens": 700
+    }
+  ],
+  "judges": [
+    {
+      "id": "judge-a",
+      "label": "JudgeA",
+      "provider": "synthetic",
+      "temperature": 0.0,
+      "max_tokens": 400
+    },
+    {
+      "id": "judge-b",
+      "label": "JudgeB",
+      "provider": "synthetic",
+      "temperature": 0.0,
+      "max_tokens": 400
+    }
+  ],
+  "conditions": [
+    "none",
+    "neutral",
+    "flattering",
+    "critical"
+  ],
+  "domains": [
+    "competence",
+    "moral",
+    "decision"
+  ],
+  "n_items": 60,
+  "k_samples": 3,
+  "seed": 20260831,
+  "e_star_source": "authored",
+  "n_generations": 4800,
+  "n_verdicts": 9600,
+  "parse_failures": 0,
+  "e_star_calibration": {
+    "n": 60,
+    "pearson_r": 0.7803220557198203,
+    "spearman_rho": 0.6849528355192833,
+    "mean_abs_diff": 4.833333333333333,
+    "mean_elicited": 26.35,
+    "mean_authored": 26.75,
+    "bias_elicited_minus_authored": -0.4
+  },
+  "wall_seconds": 0.8,
+  "notes": "Offline end-to-end pipeline test using the deterministic synthetic provider.",
+  "total_cost_usd": 0.0,
+  "api_calls": 15120,
+  "cache_hits": 0
+}
