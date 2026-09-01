@@ -12,7 +12,7 @@ notes: "Main evaluation: proprietary / open-weight / local, 60 items, k=3, 2 jud
 
 models:
   - {id: "openai/gpt-4o-mini",                label: "GPT-4o-mini",    arm: proprietary}
-  - {id: "anthropic/claude-3.5-haiku",        label: "Claude-3.5-Haiku", arm: proprietary}
+  - {id: "anthropic/claude-haiku-4.5",        label: "Claude-Haiku-4.5", arm: proprietary}
   - {id: "meta-llama/llama-3.3-70b-instruct", label: "Llama-3.3-70B",  arm: open-weight}
   - {id: "qwen/qwen-2.5-72b-instruct",        label: "Qwen-2.5-72B",   arm: open-weight}
   - {id: "llama3.1:8b",                       label: "Llama-3.1-8B (local)", arm: local, provider: ollama}

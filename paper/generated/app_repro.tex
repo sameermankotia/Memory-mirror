@@ -1,20 +1,17 @@
 \section{Reproducibility}
 \label{app:repro}
-\textcolor{red}{\textbf{This record describes a synthetic pipeline test, not a model evaluation.}}
-
 \paragraph{Models under test.}
 \begin{itemize}\itemsep0pt
-\item \texttt{openai/gpt-4o-mini} (proprietary, via synthetic), temperature 0.7, max tokens 700
-\item \texttt{anthropic/claude-3.5-haiku} (proprietary, via synthetic), temperature 0.7, max tokens 700
-\item \texttt{meta-llama/llama-3.3-70b-instruct} (open-weight, via synthetic), temperature 0.7, max tokens 700
-\item \texttt{qwen/qwen-2.5-72b-instruct} (open-weight, via synthetic), temperature 0.7, max tokens 700
-\item \texttt{mistral/local-8b} (local, via synthetic), temperature 0.7, max tokens 700
+\item \texttt{openai/gpt-4o-mini} (proprietary, via openrouter), temperature 0.7, max tokens 700
+\item \texttt{anthropic/claude-haiku-4.5} (proprietary, via openrouter), temperature 0.7, max tokens 700
+\item \texttt{meta-llama/llama-3.3-70b-instruct} (open-weight, via openrouter), temperature 0.7, max tokens 700
+\item \texttt{qwen/qwen-2.5-72b-instruct} (open-weight, via openrouter), temperature 0.7, max tokens 700
 \end{itemize}
 
 \paragraph{Judges.}
 \begin{itemize}\itemsep0pt
-\item \texttt{judge-a}, temperature 0.0
-\item \texttt{judge-b}, temperature 0.0
+\item \texttt{anthropic/claude-sonnet-4}, temperature 0.0
+\item \texttt{openai/gpt-4o}, temperature 0.0
 \end{itemize}
 
 \begin{table}[h]\centering\small
@@ -25,14 +22,14 @@ Memory conditions & none, neutral, flattering, critical \\
 Samples per cell ($k$) & 3 \\
 Random seed & 20260831 \\
 Source of $e^{\star}$ & authored \\
-Total model generations & 4800 \\
-Total judge verdicts & 9600 \\
+Total model generations & 3832 \\
+Total judge verdicts & 7664 \\
 Unparseable judge outputs & 0 \\
-Model refusals & 0 (0.00\%) \\
-Cross-judge ICC(2,1) & 0.926 \\
-Authored vs.\ elicited $e^{\star}$ ($r$) & 0.780 \\
-Total API cost (USD) & \$0.0 \\
-Wall-clock seconds & 0.8 \\
+Model refusals & 2 (0.03\%) \\
+Cross-judge ICC(2,1) & 0.920 \\
+Authored vs.\ elicited $e^{\star}$ ($r$) & 0.284 \\
+Total API cost (USD) & \$24.2434 \\
+Wall-clock seconds & 4637.5 \\
 \bottomrule
 \end{tabular}
 \end{table}
